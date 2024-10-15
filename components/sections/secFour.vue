@@ -29,7 +29,7 @@ const bukapost = (index) => {
                                 <img :src="slide._embedded['wp:featuredmedia'][0].source_url" alt=""
                                 class="w-full h-[240px] object-cover">
                                 <div class="flex items-center gap-3 justify-between pl-2">
-                                    <span class="text-xl font-semibold " v-html="slide.title.rendered "></span>
+                                    <span class="font-semibold " v-html="slide.title.rendered "></span>
                                     <button @click="bukapost(index)" class="p-2 bg-red-500 text-blue-50"> buka</button>
                                 </div>
                             </div>
