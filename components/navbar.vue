@@ -18,7 +18,7 @@ const menus = useMenu()
                         </ul>
                     </div>
                     <button class="text-brand-100 w-8 h-8  flex items-center justify-center rounded-full p-2 text-2xl border border-bramd-100 hover:bg-brand-700 duration-300"> <iconsSearch /> </button>
-                    </div>s
+                    </div>
                 </nav>
             </div>
         </header>
