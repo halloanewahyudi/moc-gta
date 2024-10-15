@@ -2,37 +2,59 @@
 // https://ori.clean.web.id/wp-json/wp/v2/project?_embed
 const { data, status, error, refresh, clear } = await useFetch('https://ori.clean.web.id/wp-json/wp/v2/project?_embed', {
 })
+
+const select = ref(null)
+const buka = ref([]);
+const bukapost = (index) => {
+    buka.value[index] = !buka.value[index]
+}
 </script>
 <template>
     <div>
         <div class="grid grid-cols-1 lg:grid-cols-3">
-            <div>
-
-            </div>
             <div class="col-span-2">
-                <Swiper
-    :modules="[SwiperAutoplay, SwiperEffectCreative]"
-    :slides-per-view="4"
-    :loop="true"
-    :effect="'creative'"
-    :autoplay="{
-      delay: 8000,
-      disableOnInteraction: true,
-    }"
-    :creative-effect="{
-      prev: {
-        shadow: false,
-        translate: ['-20%', 0, -1],
-      },
-      next: {
-        translate: ['100%', 0, 0],
-      },
-    }"
-  >
-    <SwiperSlide v-for="slide in data" :key="slide">
-      <strong>{{ slide.title.rendered }}</strong>
-    </SwiperSlide>
-  </Swiper>
+                <Swiper :modules="[SwiperAutoplay]" :space-between="20" :slides-per-view="3" :speed="1500" :loop="true"
+                    :autoplay="{
+                        delay: 3000,
+                        disableOnInteraction: true,
+                    }">
+                    <SwiperSlide v-for="(slide, index) in data" :key="index" class="w-full ">
+                        <div class="flex flex-col gap-0">
+                            <div class="flex flex-col gap-0 bg-brand-700">
+                                <img :src="slide._embedded['wp:featuredmedia'][0].source_url" alt=""
+                                class="w-full h-[240px] object-cover">
+                                <div class="flex items-center gap-3 justify-between pl-2">
+                                    <span class="text-xl font-semibold " v-html="slide.title.rendered "></span>
+                                    <button @click="bukapost(index)" class="p-2 bg-red-500 text-blue-50"> buka</button>
+                                </div>
+                            </div>
+                            <div v-if="buka[index]" class="p-4 bg-brand-100 text-brand-950">
+                                <div class="grid grid-cols-5">
+                                    <span class="col-span-2"> Client</span>
+                                    <div class="col-span-3" v-html="slide.acf.client.value_formatted"></div>
+                                </div>
+                                <div class="grid grid-cols-5">
+                                    <span class="col-span-2"> Location</span>
+                                    <div class="col-span-3" v-html="slide.acf.location.value_formatted"></div>
+                                </div>
+                                <div class="grid grid-cols-5">
+                                    <span class="col-span-2"> Product</span>
+                                    <div class="col-span-3" v-html="slide.acf.product.value_formatted"></div>
+                                </div>
+                                <div class="grid grid-cols-5">
+                                    <span class="col-span-2"> Application</span>
+                                    <div class="col-span-3" v-html="slide.acf.application.value_formatted"></div>
+                                </div>
+                                <div class="grid grid-cols-5">
+                                    <span class="col-span-2"> Year</span>
+                                    <div class="col-span-3" v-html="slide.acf.year.value_formatted"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </SwiperSlide>
+                </Swiper>
+            </div>
+            <div>
             </div>
         </div>
     </div>
