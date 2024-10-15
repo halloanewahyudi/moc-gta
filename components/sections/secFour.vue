@@ -17,7 +17,12 @@ const bukapost = (index) => {
                     :autoplay="{
                         delay: 3000,
                         disableOnInteraction: true,
-                    }">
+                    }"
+                    :navigation="{
+                          nextEl: '.next',
+                          prevEl: '.prev',
+                    }"
+                    >
                     <SwiperSlide v-for="(slide, index) in data" :key="index" class="w-full ">
                         <div class="flex flex-col gap-0">
                             <div class="flex flex-col gap-0 bg-brand-700">
@@ -54,8 +59,24 @@ const bukapost = (index) => {
                     </SwiperSlide>
                 </Swiper>
             </div>
-            <div>
+            <div class="col-span-1">
+            <div class="p-6 lg:p-10">
+               
+                <h2 class="section-title">
+                    Portfolio
+                </h2>
+                <p class="text-xl">We have contributed in construction of many big strategic projects across Indonesia</p>
+             <div class="flex items-center">
+                <button class="p-4 bg-red-500 text-brand-50 text-2xl prev">
+                    <IconsArrowLeft/>
+                </button>
+                <button class="p-4 bg-red-500 text-brand-50 text-2xl next">
+                    <IconsArrowRight/>
+                </button>
+             </div>
+                </div>
             </div>
+           
         </div>
     </div>
 </template>

@@ -14,7 +14,7 @@ const sectwo = home.sectionTwo
                     <p class="">{{ sectwo.description }} </p>
                     <ul class="flex flex-col gap-3">
                         <li v-for="item in sectwo.services" :key="item">
-                            <NuxtLink to="/"  class="flex gap-2 items-center p-2 hover:bg-red-500 hover:text-brand-50 duration-300 max-w-max group">  <IconsChevronRight class="group-hover:translate-x-2 duration-300"/>  {{ item }} </NuxtLink>
+                            <NuxtLink to="/"  class="flex font-semibold gap-2 items-center p-2 hover:bg-red-500 hover:text-brand-50 duration-300 max-w-max group">  <IconsChevronRight class="group-hover:translate-x-2 duration-300"/>  {{ item }} </NuxtLink>
                         </li>
                     </ul>
                 </div>
