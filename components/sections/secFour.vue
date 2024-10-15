@@ -60,7 +60,7 @@ const bukapost = (index) => {
                 </Swiper>
             </div>
             <div class="col-span-1">
-            <div class="p-6 lg:p-10">
+            <div class="p-6 lg:p-10 flex flex-col gap-4">
                
                 <h2 class="section-title">
                     Portfolio
