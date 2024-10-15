@@ -1,0 +1,11 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body{
+    @apply bg-brand-950 text-brand-50;
+}
+
+.section-title{
+    @apply text-3xl lg:text-5xl font-bold uppercase;
+}
